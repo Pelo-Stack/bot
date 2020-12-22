@@ -805,15 +805,9 @@ case 'filmanime':
                    console.log(err)
                })
            break     
-      case 'loli':
-           loli(value)
-               .then(buffer => {
-                   client.sendMessage(id, '[❗] WAIT BOSQ🖤',MessageType.text)
-                   client.sendMessage(id, buffer,MessageType.image)
-               })
-               .catch(err => {
-                   console.log(err)
-               })
+        case '!loli':
+            const loli = await get.get('https://mhankbarbar.herokuapp.com/api/randomloli').json()
+            client.sendFileFromUrl(from, loli.result, 'loli.jpeg', 'Lolinya om', id)
            break     
         case 'logogaming':
            logogaming(value)
