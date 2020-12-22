@@ -817,16 +817,11 @@ case 'filmanime':
                    console.log(err)
                })
            break
-         case 'memecreate':
-           memecreate(value)
-               .then(buffer => {
-                   client.sendMessage(id, '[❗] WAIT BOSQ🖤',MessageType.text)
-                   client.sendMessage(id, buffer,MessageType.image)
-               })
-               .catch(err => {
-                   console.log(err)
-               })    
-           break  
+        case '!meme':
+            const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
+            const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
+            client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
+            break
    case 'gltext':
            gltext(value)
                .then(buffer => {
