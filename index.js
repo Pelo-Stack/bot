@@ -177,16 +177,19 @@ client.on('message-new', async (m) => {
       case 'info':
            client.sendMessage(id, info.info(id, A187, tanggal),MessageType.text)
            break             
-        case '!nulis':
-            if (args.length === 1) return client.reply(from, 'Kirim perintah *!nulis [teks]*', id)
-            const nulis = encodeURIComponent(body.slice(7))
-            client.reply(from, mess.wait, id)
-            let urlnulis = `https://mhankbarbar.herokuapp.com/nulis?text=${nulis}&apiKey=${apiKey}`
-            await fetch(urlnulis, {method: "GET"})
-            .then(res => res.json())
-            .then(async (json) => {
-                await client.sendFileFromUrl(from, json.result, 'Nulis.jpg', 'Nih anjim', id)
-            }).catch(e => client.reply(from, "Error: "+ e));
+if (text.includes('!nulis')){
+  var teks = text.replace(/!nulis /, '')
+    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
+    .then((res) => {
+      imageToBase64(res.data.result)
+        .then(
+          (ress) => {
+            conn.sendMessage(id, '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar', MessageType.text)
+            var buf = Buffer.from(ress, 'base64')
+            conn.sendMessage(id, buf, MessageType.image)
+        })
+    })
+}
            break
        case 'say':
            await client.sendMessage(id, value,MessageType.text)
