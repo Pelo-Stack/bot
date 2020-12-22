@@ -875,15 +875,11 @@ case 'filmanime':
                    console.log(err)
                })
            break
-           case 'nekonime':
-           nekonime(value)
-               .then(buffer => {
-                   client.sendMessage(id, '[❗] WAIT BOSQ🖤',MessageType.text)
-                   client.sendMessage(id, buffer ,MessageType.image)
-               })
-               .catch(err => {
-                   console.log(err)
-               })
+        case '!nekonime':
+            q2 = Math.floor(Math.random() * 900) + 300;
+            q3 = Math.floor(Math.random() * 900) + 300;
+            client.sendFileFromUrl(from, 'http://placekitten.com/'+q3+'/'+q2, 'neko.png','Neko ')
+            break
        case 'randomkis':
            randomkis(value)
                .then(buffer => {
