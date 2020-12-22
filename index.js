@@ -314,7 +314,7 @@ if (text.includes('!nulis')){
                    console.log(err)
                })     
            break
-       case 'covid':
+       case 'covidID':
            corona(value)
                .then(data => {
                    const { meninggal, sembuh, positif } = data
@@ -336,7 +336,7 @@ if (text.includes('!nulis')){
                    console.log(err)
                })
            break
-       case 'nama':
+       case 'artinama':
            artinama(value)
                .then(data => {
                    const { result: arti } = data
