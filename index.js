@@ -13,9 +13,9 @@ const moment = require("moment-timezone")
 const fs = require("fs")
 const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'VERSION:3.0\n' 
-            + 'FN:Aris\n' // full name
-            + 'ORG:Creator AR15BOT;\n' // the organization of the contact
-            + 'TEL;type=CELL;type=VOICE;waid=6285722553839:+62 857-2255-3839\n' // WhatsApp ID + phone number
+            + 'FN:Ownerku Tersayang\n' // full name
+            + 'ORG:Creator BOT X-PLAY;\n' // the organization of the contact
+            + 'TEL;type=CELL;type=VOICE;waid=6283870068641:+62 838-7006-8641\n' // WhatsApp ID + phone number
             + 'END:VCARD'
 
 const time = moment().tz('Asia/Jakarta').format("HH:mm:ss")
@@ -24,12 +24,12 @@ const arrayBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Jul
 const bulan = arrayBulan[moment().format('MM') - 1]
 
 const config = {
-    A187: '👾BOT X-PLAY👾',
-    instagram: 'https://instagram.com/anggorgamep',
-    nomer: 'wa.me/6283870068641',
-    aktif: 'Mulai Pukul 08:15 - 21:00',
-    youtube: 'https://youtube.com/channel/UCZTUYmFg7nGWaICg1Lz3k4g',
-    whatsapp: 'https://chat.whatsapp.com/JyltroeLvoaIX3ZFKDcY4G',
+    A187: '👾BOT X-PLAY👾', // bot name
+    instagram: 'https://instagram.com/anggorgamep', // akun instagram
+    nomer: 'wa.me/6283870068641', // nomer 
+    aktif: 'Mulai Pukul 08:15 - 21:00', // waktu bot aktif
+    youtube: 'https://youtube.com/channel/UCZTUYmFg7nGWaICg1Lz3k4g', // youtube lu cok
+    whatsapp: 'https://chat.whatsapp.com/JyltroeLvoaIX3ZFKDcY4G', // grupch1
     tanggal: `TANGGAL: ${moment().format('DD')} ${bulan} ${moment().format('YYYY')}`,
     waktu: time
 }
@@ -395,7 +395,7 @@ client.on('message-new', async (m) => {
        case 'creator':
        case 'owner':
        client.sendMessage(id, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
-       client.sendMessage(id, 'Nieh nomer pacarku...Eeh maksudku nomer owner/creator,chat ajah terus di save, nanti di back kok kak ><',MessageType.text)
+       client.sendMessage(id, 'Nieh nomer pacarku...Eeh maksudku nomer owner/creator, chat ajah terus di save, nanti di back kok kak ><',MessageType.text)
            await client.sendMessage(id, value,MessageType.text)
            break    
        case 'lirik':
