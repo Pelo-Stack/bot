@@ -756,25 +756,13 @@ case 'filmanime':
                    console.log(err)
                })
            break
-           case 'waifu':
-           waifu(value)
-               .then(buffer => {
-                   client.sendMessage(id, '[❗] WAIT BOSQ🖤',MessageType.text)
-                   client.sendMessage(id, buffer ,MessageType.image)
-               })
-               .catch(err => {
-                   console.log(err)
-               })
+        case '!waifu':
+            const waifu = await get.get(`https://mhankbarbar.herokuapp.com/api/waifu?apiKey=${apiKey}`).json()
+            client.sendFileFromUrl(from, waifu.image, 'Waifu.jpg', `➸ Name : ${waifu.name}\n➸ Description : ${waifu.desc}\n\n➸ Source : ${waifu.source}`, id)
            break
-        case 'waifu2':
-           waifu2(value)
-               .then(buffer => {
-                   client.sendMessage(id, '[❗] WAIT BOSQ🖤',MessageType.text)
-                   client.sendMessage(id, buffer ,MessageType.image)
-               })
-               .catch(err => {
-                   console.log(err)
-               })
+        case '!waifu2':
+            const waifu = await get.get(`https://mhankbarbar.herokuapp.com/api/waifu?apiKey=${apiKey}`).json()
+            client.sendFileFromUrl(from, waifu.image, 'Waifu.jpg', `➸ Name : ${waifu.name}\n➸ Description : ${waifu.desc}\n\n➸ Source : ${waifu.source}`, id)
            break  
        case 'randomcry':
            randomcry(value)
