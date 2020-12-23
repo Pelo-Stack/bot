@@ -177,10 +177,10 @@ client.on('message-new', async (m) => {
       case 'info':
            client.sendMessage(id, info.info(id, A187, tanggal),MessageType.text)
            break             
-if (text.includes('!nulis')){
-  var teks = text.replace(/!nulis /, '')
-    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
-    .then((res) => {
+  case (text.includes('!nulis')){
+    var teks = text.replace(/!nulis /, '')
+     axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
+     .then((res) => {
       imageToBase64(res.data.result)
         .then(
           (ress) => {
